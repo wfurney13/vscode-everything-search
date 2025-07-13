@@ -1,8 +1,28 @@
 {
   "name": "everything-search",
   "displayName": "Everything Search",
-  "description": "Search files using Everything from VS Code",
+  "description": "Search files using Everything from VS Code with real-time incremental search and auto-regex detection",
   "version": "0.0.1",
+  "publisher": "wfurney",
+  "author": "William Furney",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wfurney13/vscode-everything-search"
+  },
+  "homepage": "https://github.com/wfurney13/vscode-everything-search",
+  "bugs": {
+    "url": "https://github.com/wfurney13/vscode-everything-search/issues"
+  },
+  "keywords": [
+    "everything",
+    "search",
+    "file",
+    "finder",
+    "incremental",
+    "regex",
+    "windows"
+  ],
   "engines": {
     "vscode": "^1.74.0"
   },

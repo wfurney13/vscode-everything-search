@@ -2,8 +2,8 @@
 
 A Visual Studio Code extension that integrates Everything search functionality directly into your editor.
 
-[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/wfurney13.everything-search)](https://marketplace.visualstudio.com/items?itemName=wfurney13.everything-search)
-[![Downloads](https://img.shields.io/visual-studio-marketplace/d/wfurney13.everything-search)](https://marketplace.visualstudio.com/items?itemName=wfurney13.everything-search)
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/wfurney.everything-search)](https://marketplace.visualstudio.com/items?itemName=wfurney.everything-search)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/wfurney.everything-search)](https://marketplace.visualstudio.com/items?itemName=wfurney.everything-search)
 
 ## Features
 
