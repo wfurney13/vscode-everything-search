@@ -1,0 +1,66 @@
+{
+  "name": "everything-search",
+  "displayName": "Everything Search",
+  "description": "Search files using Everything from VS Code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:everything-search.search",
+    "onCommand:everything-search.searchRegex"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "everything-search.search",
+        "title": "Everything: Search Files"
+      },
+      {
+        "command": "everything-search.searchRegex",
+        "title": "Everything: Search Files (Regex)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "everything-search.search",
+        "key": "ctrl+shift+e",
+        "mac": "cmd+shift+e"
+      }
+    ],
+    "configuration": {
+      "title": "Everything Search",
+      "properties": {
+        "everything-search.executablePath": {
+          "type": "string",
+          "default": "es.exe",
+          "description": "Path to es.exe executable"
+        },
+        "everything-search.maxResults": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum number of search results to display"
+        },
+        "everything-search.caseSensitive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable case-sensitive search by default"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
