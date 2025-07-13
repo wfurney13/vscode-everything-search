@@ -32,12 +32,12 @@ Download es.exe from: https://www.voidtools.com/ES-1.1.0.18.zip
 
 ### Commands
 
-- **Everything: Search Files** - Basic file search
-- **Everything: Search Files (Regex)** - Search using regular expressions
+- **Everything: Search Files** - Real-time incremental search as you type
+- **Everything: Search Files (Regex)** - Search using regular expressions (input box)
 
 ### Keyboard Shortcuts
 
-- `Ctrl+Shift+E` (Windows/Linux) or `Cmd+Shift+E` (Mac) - Open search
+- `Ctrl+Shift+E` (Windows/Linux) or `Cmd+Shift+E` (Mac) - Incremental search
 
 ### Via Command Palette
 

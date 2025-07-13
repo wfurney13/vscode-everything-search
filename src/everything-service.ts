@@ -6,6 +6,7 @@ export interface SearchOptions {
   caseSensitive?: boolean;
   wholePath?: boolean;
   maxResults?: number;
+  signal?: AbortSignal;
 }
 
 export interface SearchResult {
@@ -33,6 +34,14 @@ export class EverythingService {
       let stdout = '';
       let stderr = '';
 
+      // Handle cancellation
+      if (options.signal) {
+        options.signal.addEventListener('abort', () => {
+          process.kill();
+          reject(new Error('Search cancelled'));
+        });
+      }
+
       process.stdout.on('data', (data) => {
         stdout += data.toString();
       });
@@ -42,6 +51,10 @@ export class EverythingService {
       });
 
       process.on('close', (code) => {
+        if (options.signal?.aborted) {
+          return; // Already handled by abort listener
+        }
+        
         if (code !== 0) {
           reject(new Error(`Everything search failed: ${stderr}`));
           return;
@@ -56,7 +69,9 @@ export class EverythingService {
       });
 
       process.on('error', (error) => {
-        reject(new Error(`Failed to start Everything search: ${error.message}`));
+        if (!options.signal?.aborted) {
+          reject(new Error(`Failed to start Everything search: ${error.message}`));
+        }
       });
     });
   }
@@ -77,13 +92,14 @@ export class EverythingService {
       args.push('-p');
     }
 
-    // Limit results for performance
-    const maxResults = options.maxResults || 100;
-    args.push('-n', maxResults.toString());
-
     // Add the search query
     args.push(query);
 
+    // Limit results for performance (put after query)
+    const maxResults = options.maxResults || 100;
+    args.push('-n', maxResults.toString());
+
+    console.log(`ES command: ${this.executablePath} ${args.join(' ')}`);
     return args;
   }
 

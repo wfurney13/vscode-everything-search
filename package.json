@@ -54,6 +54,16 @@
           "type": "boolean",
           "default": true,
           "description": "Open directories in VS Code instead of file explorer"
+        },
+        "everything-search.incrementalSearchDelay": {
+          "type": "number",
+          "default": 300,
+          "description": "Delay in milliseconds before performing incremental search"
+        },
+        "everything-search.minSearchLength": {
+          "type": "number",
+          "default": 2,
+          "description": "Minimum number of characters required to start incremental search"
         }
       }
     }
