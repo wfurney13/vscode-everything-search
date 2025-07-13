@@ -96,8 +96,16 @@ async function openFile(filePath: string) {
     const stat = await vscode.workspace.fs.stat(uri);
 
     if (stat.type === vscode.FileType.Directory) {
-      // Open folder in Explorer
-      await vscode.commands.executeCommand('revealFileInOS', uri);
+      const config = vscode.workspace.getConfiguration('everything-search');
+      const openInVSCode = config.get('openFoldersInVSCode', true);
+      
+      if (openInVSCode) {
+        // Open folder in VS Code
+        await vscode.commands.executeCommand('vscode.openFolder', uri, { forceNewWindow: false });
+      } else {
+        // Open folder in file explorer
+        await vscode.commands.executeCommand('revealFileInOS', uri);
+      }
     } else {
       // Open file in editor
       await vscode.window.showTextDocument(uri);

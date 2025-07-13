@@ -49,6 +49,11 @@
           "type": "boolean",
           "default": false,
           "description": "Enable case-sensitive search by default"
+        },
+        "everything-search.openFoldersInVSCode": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open directories in VS Code instead of file explorer"
         }
       }
     }
